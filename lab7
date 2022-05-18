@@ -1,0 +1,20 @@
+import cv2 as cv
+import numpy as np
+
+image = cv.imread('C:\\Users\\buse\\Desktop\\rainbow.jpeg')
+cv.imshow('rainbow',image)
+cv.waitKey(0)
+
+(B,G,R) = cv.split(image)
+cv.imshow('red',R)
+cv.imshow('green',G)
+cv.imshow('blue',B)
+
+min = np.array([10,20,30])
+max = np.array([100,200,255])
+R = cv.inRange(image,min,max)
+
+merge = cv.merge([B,G,R])
+cv.imshow("merged",merge)
+
+cv.waitKey(0)
